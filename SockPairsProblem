@@ -1,0 +1,21 @@
+import Foundation
+
+func getPairs(numberOfSocks: Int, colours: [Int]) -> Int {
+
+    let colours = colours.sorted()
+    var numberOfPairs = 0
+    var previousColour = 0
+
+    for colour in colours {
+        if colour == previousColour {
+            numberOfPairs += 1
+            previousColour = 0
+        } else {
+            previousColour = colour
+        }
+    }
+    return numberOfPairs
+}
+
+let numberOfPairs = getPairs(numberOfSocks: 9, colours: [01, 01, 01, 10, 10, 30, 50, 10, 20])
+print(numberOfPairs)
