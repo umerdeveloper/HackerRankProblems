@@ -1,1 +1,20 @@
 
+func getNumberOfValleys(numberOfSteps: Int, path: String) -> Int {
+    var numberOfValleys = 0
+    var stepsDownCounter = 0
+
+    let down: Character = "D"
+    let up: Character = "U"
+
+    for step in path {
+        stepsDownCounter = step == down ? stepsDownCounter + 1 : stepsDownCounter - 1
+        if step == up && stepsDownCounter == 0 {
+            numberOfValleys += 1
+        }
+    }
+
+    return numberOfValleys
+}
+
+let numberOfValleys = getNumberOfValleys(numberOfSteps: 10, path: "DUDDUUUUDD")
+print(numberOfValleys)
